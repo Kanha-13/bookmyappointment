@@ -1,0 +1,37 @@
+#home-body {
+  padding: 0px 20%;
+  color: white;
+  font-weight: bolder;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.home-body-title {
+  font-size: 35px;
+  /* width: 50%; */
+  margin: 2px;
+}
+
+#body-right,
+#body-left {
+  width: 50%;
+}
+
+#body-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#body-right button {
+  cursor: pointer;
+  width: 60%;
+  height: 30%;
+  border-radius: 10px;
+  border: none;
+  background-color: #ff6969;
+  color: white;
+  font-size: 30px;
+  font-weight: bolder;
+}

@@ -1,15 +1,14 @@
-import Layout from "../../Components/Layout";
+import Body from "../../Components/BookAppointment/Body";
 import Header from "../../Components/DashBoardHeader";
-import Body from "../../Components/AppointmentsList/Body";
-
-const Appointments = () => {
+import Layout from "../../Components/Layout";
+const BookAppointment = () => {
   return (
     <Layout>
       <div style={{ flex: 1, width: "100%", height: "100%", paddingLeft: "20px" }}>
-        <Header title="My Appointments" />
+        <Header title="Book Appointment" />
         <Body />
       </div>
     </Layout>
   );
 }
-export default Appointments;
+export default BookAppointment;

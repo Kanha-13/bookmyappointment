@@ -1,0 +1,41 @@
+#home-header {
+  padding: 20px 25px;
+  display: flex;
+  flex-direction: row;
+}
+
+#home-header p {
+  margin: 0px;
+}
+
+
+#brand-name {
+  width: 50%;
+  font-size: 35px;
+  color: rgb(0, 0, 0);
+  font-weight: bolder;
+}
+
+#header-right {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 20px;
+  width: 50%;
+}
+
+#header-right button {
+  color: white;
+  font-weight: bold;
+  background-color: rgb(128 200 203);
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  height: 30px;
+}
+
+#header-right button:hover {
+  background-color: rgb(89 162 165);
+}
