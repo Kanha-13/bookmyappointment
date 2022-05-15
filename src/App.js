@@ -3,10 +3,9 @@ import ScrollTop from './utils/ScrollTop';
 import NotFound from './Containers/NotFound';
 import Home from './Containers/Home';
 import Appointments from './Containers/AppointmentsList';
-import ViewAppointments from './Containers/ViewAppointments';
+import ViewAppointments from './Containers/ViewAppointment';
 import EditAppointments from './Containers/EditAppointments';
 import BookAppointment from './Containers/BookAppointment';
-import Layout from './Components/Layout';
 const App = () => {
   return (
     <Router>

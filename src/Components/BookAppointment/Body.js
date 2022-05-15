@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { bookMyAppointment } from "./api";
 import CustomDropDown from "./CustomDropDown";
 import CustomInput from "./CustomInput";
 
@@ -24,9 +25,10 @@ const Body = () => {
   const onChange = (name, value) => {
     setPatientDetail({ ...patientDetail, [name]: value })
   }
-  const bookAppointment = (e) => {
+  const bookAppointment = async (e) => {
     e.preventDefault()
-    console.log(patientDetail)
+    const resp = await bookMyAppointment(patientDetail);
+    console.log(resp)
   }
   return (
     <div style={{ padding: "15px", backgroundColor: "white", width: "95%", height: "83%", borderRadius: "10px" }}>
