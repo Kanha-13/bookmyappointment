@@ -1,9 +1,16 @@
+import { useNavigate } from "react-router-dom";
+import { logOut } from "./api";
+
 const Footer = () => {
+  const navigate = useNavigate()
+  const logOutUser = async () => {
+    const resp = await logOut();
+    if (resp.status === 200)
+      navigate('/')
+  }
   return (
-    <div style={{}}>
-      <div style={{ display: "flex", justifyContent: "center", alignItems: "center", width: "20px", height: "20px", fontSize: "19px", fontWeight: "bolder", borderRadius: "50%", border: "1px solid black" }}>i</div> Help?
-      <hr />
-      <div>Hi, Kanha Agrawal</div>
+    <div style={{ margin: "30px 15px" }}>
+      <button onClick={logOutUser} style={{ border: "none", backgroundColor: "red", color: "white", height: "40px", borderRadius: "5px", fontWeight: "bold", cursor: 'pointer', fontSize: "18px", width: "90px" }}>Log out</button>
     </div>
   );
 }

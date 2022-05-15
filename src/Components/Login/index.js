@@ -1,31 +1,51 @@
 import './style.css'
-import LoginImage from '../../assets/images/loginImage.png'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { signIn, signUp } from './api'
+import SignIn from './signIn'
+import SignUp from './signUp'
+import { useNavigate } from 'react-router-dom'
 const Login = ({ isOpen, onClose }) => {
   const navigate = useNavigate()
-  const onLogin = (e) => {
+  const [hasAccount, setHasAccount] = useState(true)
+
+  const onLogin = async (e, email, password) => {
     e.preventDefault()
-    // console.log(navigate("/"))
-    navigate("/appointment/book")
+    try {
+      const res = await signIn(email, password)
+      if (res.status === 200) {
+        navigate("/")
+      } else {
+        alert("Wrong credentials")
+      }
+    } catch (error) {
+      alert(error.message)
+    }
   }
+  const changeLogin = () => {
+    setHasAccount(prev => !prev)
+  }
+
+  const onSignUp = async (e, patientDetails) => {
+    e.preventDefault()
+    try {
+      const res = await signUp(patientDetails)
+      if (res.status === 201) {
+        navigate("/")
+      }
+    } catch (error) {
+      alert(error.message)
+    }
+  }
+
   return (
     <div id="login-container" style={{ display: isOpen ? "flex" : "none" }}>
       <div id="login-card">
         <button onClick={onClose} id="login-close-btn" >X</button>
-        <div id="login-card-body">
-          <img id='login-image' src={LoginImage} />
-          <div id="login-form-wrapper">
-            <p id='login-form-header'>Login</p>
-            <p className="h3">Don't have an account? <a style={{ color: "black", cursor: "pointer" }}>Creat Your Account</a> it takes less than a minute</p>
-            <form onSubmit={onLogin} id="login-form">
-              <input placeholder='user name' />
-              <input type="password" placeholder='password' />
-              {/* <input type="checkbox" /><label>Remember me</label> */}
-              <p style={{ cursor: "pointer", marginBottom: "30px" }}>forget password?</p>
-              <button type='submit'>Login</button>
-            </form>
-          </div>
-        </div>
+        {
+          hasAccount ?
+            <SignIn onLogin={onLogin} toSignUp={changeLogin} /> :
+            <SignUp onSignUp={onSignUp} toSignIn={changeLogin} />
+        }
       </div>
     </div >
   );

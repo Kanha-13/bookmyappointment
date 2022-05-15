@@ -17,7 +17,7 @@ const Body = ({ isOpen }) => {
       return "#000000"
   }
   return (
-    <div style={{ display: 'flex', flexDirection: "column", marginTop: "20px" }}>
+    <div style={{ flexGrow: 1, display: 'flex', flexDirection: "column", marginTop: "20px" }}>
       <Link className="screen-link" style={{
         backgroundColor: getBackgroundColor("/appointment/book"),
         justifyContent: isOpen ? "" : "center",

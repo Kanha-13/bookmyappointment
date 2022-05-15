@@ -9,10 +9,10 @@ const SideBar = () => {
     setSideBar(prev => !prev)
   }
   return (
-    <div className={isSideBar ? "openSideBar" : "closeSideBar"} style={{ width: "20%", height: "100vh", backgroundColor: "white" }}>
+    <div className={isSideBar ? "openSideBar" : "closeSideBar"} style={{ display: "flex", flexDirection: "column", width: "20%", height: "100vh", backgroundColor: "white" }}>
       <Header onOpen={openSideBar} isOpen={isSideBar} />
       <Body isOpen={isSideBar} />
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }
