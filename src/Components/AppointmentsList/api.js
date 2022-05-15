@@ -1,7 +1,7 @@
 import axios from "axios"
 export const getMyAppointments = async () => {
   try {
-    const res = await axios.get('http://localhost:1312/appointments', { withCredentials: true })
+    const res = await axios.get('https://bookmyappointment1.herokuapp.com/appointments', { withCredentials: true })
     return res;
   } catch (error) {
     console.log(error)
@@ -9,7 +9,7 @@ export const getMyAppointments = async () => {
 }
 export const deleteMyAppointment = async (appId) => {
   try {
-    const res = await axios.delete(`http://localhost:1312/appointment/${appId}`, { withCredentials: true })
+    const res = await axios.delete(`https://bookmyappointment1.herokuapp.com/appointment/${appId}`, { withCredentials: true })
     return res;
   } catch (error) {
     console.log(error)
@@ -17,7 +17,7 @@ export const deleteMyAppointment = async (appId) => {
 }
 export const editMyAppointment = async (appId, data) => {
   try {
-    const res = await axios.patch(`http://localhost:1312/appointment/${appId}`, data, { withCredentials: true })
+    const res = await axios.patch(`https://bookmyappointment1.herokuapp.com/appointment/${appId}`, data, { withCredentials: true })
     return res;
   } catch (error) {
     console.log(error)
